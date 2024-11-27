@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Study Place Review App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('favorites')">Favorites</button>
+        <button onclick="showSection('addPlace')">Add Place</button>
+    </nav>
+
+    <!-- Home Screen: Study Place Listings -->
+    <section id="home" class="active">
+        <h1>Study Places</h1>
+        <input type="text" id="searchInput" placeholder="Search..." oninput="filterPlaces()">
+        <div id="placesList"></div>
+    </section>
+
+    <!-- Favorites Screen -->
+    <section id="favorites">
+        <h1>Favorites</h1>
+        <div id="favoritesList"></div>
+    </section>
+
+    <!-- Add Place Screen -->
+    <section id="addPlace">
+        <h1>Add New Study Place</h1>
+        <form id="addPlaceForm">
+            <label for="placeName">Name:</label>
+            <input type="text" id="placeName" required>
+
+            <label for="placeLocation">Location:</label>
+            <input type="text" id="placeLocation" required>
+
+            <label for="placeNoise">Noise Level:</label>
+            <select id="placeNoise">
+                <option>Quiet</option>
+                <option>Moderate</option>
+                <option>Noisy</option>
+            </select>
+
+            <label for="placeCrowded">Crowdedness:</label>
+            <select id="placeCrowded">
+                <option>Not Crowded</option>
+                <option>Somewhat Crowded</option>
+                <option>Very Crowded</option>
+            </select>
+
+            <label for="placeProximity">Proximity to Food:</label>
+            <select id="placeProximity">
+                <option>Close</option>
+                <option>Moderate</option>
+                <option>Far</option>
+            </select>
+
+            <button type="submit">Add Place</button>
+        </form>
+    </section>
+
+    <!-- Reviews Screen -->
+    <section id="reviews">
+        <h1>Reviews for <span id="reviewPlaceName"></span></h1>
+        <div id="reviewsList"></div>
+        <form id="addReviewForm">
+            <textarea id="reviewText" placeholder="Write a review..." required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+        <button onclick="showSection('home')">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
